@@ -1,0 +1,28 @@
+/* 
+  Localizable.strings
+  Swifty
+
+  Created by Yuki Okudera on 2020/03/22.
+  Copyright © 2020 Yuki Okudera. All rights reserved.
+*/
+
+// MARK: - Alert
+"OK" = "OK";
+"Error" = "エラー";
+"DefaultErrorMessage" = "エラーが発生しました。";
+
+// MARK: - APIError
+"Unauthorized" = "認証に失敗しました。";
+"Forbidden" = "アクセスが許可されていません。";
+"ConnectionError" = "通信エラーが発生しました。";
+"TimedOut" = "タイムアウトしました。";
+"DecodeError" = "レスポンスデータのデコードに失敗しました。";
+"DefaultErrorResponse" = "エラー情報が返却されました。";
+"InvalidRequest" = "リクエスト情報が不正です。";
+"InvalidResponse" = "レスポンスが不正です。";
+
+
+// MARK: - NetworkReachabilityError
+"NotReachable" = "ネットワークに接続されていません。";
+"OnlyViaWiFi" = "Wi-FiがOFFになっています。";
+
