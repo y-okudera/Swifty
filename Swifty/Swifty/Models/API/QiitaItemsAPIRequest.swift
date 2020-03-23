@@ -16,21 +16,20 @@ final class QiitaItemsAPIRequest: APIRequest {
     let path: String = "/items"
     var parameters: [String: Any] = [:]
     
-    private let perPage = 10
-    private var page: Int {
+    private let perPage = 50
+    private var page: Int = 1 {
         didSet {
             self.parameters["page"] = "\(page)"
         }
     }
-    private var query: String {
+    var query: String {
         didSet {
             self.parameters["query"] = "\(query)"
             resetPage()
         }
     }
     
-    init(page: Int, query: String) {
-        self.page = page
+    init(query: String) {
         self.query = query
         createParameters()
     }
@@ -56,6 +55,9 @@ extension QiitaItemsAPIRequest {
     
     func decrementPage() {
         self.page -= 1
+        if self.page <= 0 {
+            self.page = 1
+        }
     }
 }
 
