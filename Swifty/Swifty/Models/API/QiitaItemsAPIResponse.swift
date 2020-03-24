@@ -19,6 +19,24 @@ struct QiitaItem: Decodable {
     var `private`: Bool = false
     var tags: [QiitaItemTag] = []
     var user: QiitaUser?
+    
+    func makeGitHubUserUrlString() -> String? {
+        guard let githubLoginName = user?.githubLoginName else {
+            return nil
+        }
+        let githubUrlBase = "https://github.com/"
+        let githubUserUrlString = githubUrlBase + githubLoginName
+        return githubUserUrlString
+    }
+    
+    func makeQiitaUserUrlString() -> String? {
+        guard let userId = user?.id else {
+            return nil
+        }
+        let qiitaUrlBase = "https://qiita.com/"
+        let qiitaUserUrlString = qiitaUrlBase + userId
+        return qiitaUserUrlString
+    }
 }
 
 struct QiitaItemTag: Decodable {

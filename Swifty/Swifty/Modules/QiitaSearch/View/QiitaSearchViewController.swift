@@ -32,6 +32,16 @@ final class QiitaSearchViewController: UIViewController {
         initSearch()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let selectedIndexPaths = tableView.indexPathsForSelectedRows {
+            selectedIndexPaths.forEach {
+                tableView.deselectRow(at: $0, animated: true)
+            }
+        }
+    }
+    
     private func initSearch() {
         navigationItem.title = initSearchWord
         presenter.tappedSearchButton(query: initSearchWord)
@@ -66,7 +76,9 @@ extension QiitaSearchViewController: QiitaSearchView {
 }
 
 extension QiitaSearchViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter.didSelectRow(indexPath: indexPath)
+    }
 }
 
 extension QiitaSearchViewController: UIScrollViewDelegate {
@@ -82,7 +94,7 @@ extension QiitaSearchViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let searchText = searchBar.text ?? ""
-        print("検索", searchText)
+        print(debug: "検索", searchText)
         navigationItem.title = searchText
         presenter.tappedSearchButton(query: searchText)
         searchBar.endEditing(true)

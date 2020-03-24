@@ -34,14 +34,9 @@ final class QiitaSearchRouter {
 
 extension QiitaSearchRouter: QiitaSearchWireframe {
     
-    func showUserGitHubPageBrowse() {
-        // TODO: - GitHubPageを表示するWebView実装後対応
+    func showWebBrowser(urlString: String) {
+        let webBrowserVC = WebBrowserRouter.assembleModules(urlString: urlString)
+        viewController?.navigationController?.pushViewController(webBrowserVC, animated: true)
     }
-    
-    func showItemPageBrowse() {
-        // TODO: - Qiitaの記事を表示するWebView実装後対応
-    }
-    
-    
 }
 

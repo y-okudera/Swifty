@@ -15,8 +15,14 @@ enum QiitaSearchTableViewSection: Int, CaseIterable {
 
 final class QiitaSearchViewDataSource: NSObject {
     
+    weak var qiitaSearchCelldelegate: QiitaSearchTableViewCellDelegate?
+    
+    init(qiitaSearchCelldelegate: QiitaSearchTableViewCellDelegate) {
+        self.qiitaSearchCelldelegate = qiitaSearchCelldelegate
+    }
+    
     private var isLoading = false
-    private var qiitaItems = [QiitaItem]()
+    private(set) var qiitaItems = [QiitaItem]()
     
     func set(newItems: [QiitaItem]) {
         self.qiitaItems = newItems
@@ -65,7 +71,7 @@ extension QiitaSearchViewDataSource: UITableViewDataSource {
         switch qiitaSearchSection {
             case .qiitaItems:
                 let cell: QiitaSearchTableViewCell = tableView.dequeueReusableCell(for: indexPath)
-                cell.qiitaItem = qiitaItems[indexPath.row]
+                cell.set(qiitaItem: qiitaItems[indexPath.row], indexPath: indexPath, delegate: qiitaSearchCelldelegate)
                 return cell
             
             case .loading:

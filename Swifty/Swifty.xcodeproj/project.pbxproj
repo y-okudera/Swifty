@@ -33,6 +33,14 @@
 		645C1E9624287D9800C9176A /* LoadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C1E9424287D9800C9176A /* LoadingTableViewCell.swift */; };
 		645C1E9724287D9800C9176A /* LoadingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 645C1E9524287D9800C9176A /* LoadingTableViewCell.xib */; };
 		645C1E992428833E00C9176A /* QiitaSearchViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C1E982428833E00C9176A /* QiitaSearchViewDataSource.swift */; };
+		645C1EA12429200500C9176A /* WebBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C1EA02429200500C9176A /* WebBrowserViewController.swift */; };
+		645C1EA32429201600C9176A /* WebBrowserViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 645C1EA22429201600C9176A /* WebBrowserViewController.storyboard */; };
+		645C1EA52429218500C9176A /* WebBrowserContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C1EA42429218500C9176A /* WebBrowserContract.swift */; };
+		645C1EA72429922A00C9176A /* WebBrowserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C1EA62429922A00C9176A /* WebBrowserRouter.swift */; };
+		645C1EA92429923E00C9176A /* WebBrowserPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C1EA82429923E00C9176A /* WebBrowserPresenter.swift */; };
+		645C1EAB2429984100C9176A /* JSAlertCompatible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C1EAA2429984100C9176A /* JSAlertCompatible.swift */; };
+		645C1EAE2429CF3300C9176A /* NVActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 645C1EAD2429CF3300C9176A /* NVActivityIndicatorView */; };
+		645C1EB02429CF4C00C9176A /* UIViewController+NVActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C1EAF2429CF4C00C9176A /* UIViewController+NVActivityIndicatorView.swift */; };
 		645D50D8242604FD0012742E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645D50D7242604FD0012742E /* AppDelegate.swift */; };
 		645D50DA242604FD0012742E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645D50D9242604FD0012742E /* SceneDelegate.swift */; };
 		645D50E2242604FD0012742E /* Swifty.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 645D50E0242604FD0012742E /* Swifty.xcdatamodeld */; };
@@ -101,6 +109,13 @@
 		645C1E9424287D9800C9176A /* LoadingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingTableViewCell.swift; sourceTree = "<group>"; };
 		645C1E9524287D9800C9176A /* LoadingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingTableViewCell.xib; sourceTree = "<group>"; };
 		645C1E982428833E00C9176A /* QiitaSearchViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QiitaSearchViewDataSource.swift; sourceTree = "<group>"; };
+		645C1EA02429200500C9176A /* WebBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebBrowserViewController.swift; sourceTree = "<group>"; };
+		645C1EA22429201600C9176A /* WebBrowserViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WebBrowserViewController.storyboard; sourceTree = "<group>"; };
+		645C1EA42429218500C9176A /* WebBrowserContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebBrowserContract.swift; sourceTree = "<group>"; };
+		645C1EA62429922A00C9176A /* WebBrowserRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebBrowserRouter.swift; sourceTree = "<group>"; };
+		645C1EA82429923E00C9176A /* WebBrowserPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebBrowserPresenter.swift; sourceTree = "<group>"; };
+		645C1EAA2429984100C9176A /* JSAlertCompatible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSAlertCompatible.swift; sourceTree = "<group>"; };
+		645C1EAF2429CF4C00C9176A /* UIViewController+NVActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+NVActivityIndicatorView.swift"; sourceTree = "<group>"; };
 		645D50D4242604FD0012742E /* Swifty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swifty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		645D50D7242604FD0012742E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		645D50D9242604FD0012742E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +150,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				645C1EAE2429CF3300C9176A /* NVActivityIndicatorView in Frameworks */,
 				64460CA82427C49F00CA4D46 /* Nuke in Frameworks */,
 				6499537A242628AE00922516 /* Alamofire in Frameworks */,
 				649953872426296800922516 /* PromiseKit in Frameworks */,
@@ -194,6 +210,51 @@
 				64460C992427BC1F00CA4D46 /* TimeZone+Extensions.swift */,
 			);
 			path = Date;
+			sourceTree = "<group>";
+		};
+		645C1E9A24291F6B00C9176A /* WebBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				645C1E9B24291FD300C9176A /* Contract */,
+				645C1E9D24291FDE00C9176A /* Presenter */,
+				645C1E9E24291FE300C9176A /* Router */,
+				645C1E9F24291FE900C9176A /* View */,
+			);
+			path = WebBrowser;
+			sourceTree = "<group>";
+		};
+		645C1E9B24291FD300C9176A /* Contract */ = {
+			isa = PBXGroup;
+			children = (
+				645C1EA42429218500C9176A /* WebBrowserContract.swift */,
+			);
+			path = Contract;
+			sourceTree = "<group>";
+		};
+		645C1E9D24291FDE00C9176A /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				645C1EA82429923E00C9176A /* WebBrowserPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		645C1E9E24291FE300C9176A /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				645C1EA62429922A00C9176A /* WebBrowserRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		645C1E9F24291FE900C9176A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				645C1EAA2429984100C9176A /* JSAlertCompatible.swift */,
+				645C1EA22429201600C9176A /* WebBrowserViewController.storyboard */,
+				645C1EA02429200500C9176A /* WebBrowserViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		645D50CB242604FC0012742E = {
@@ -270,6 +331,7 @@
 				64460CB12427D4CF00CA4D46 /* UITableViewCell+Identifier.swift */,
 				64460CAB2427C9DF00CA4D46 /* UITraitCollection+IsDarkMode.swift */,
 				64460CBC2427DB8100CA4D46 /* UIViewController+Instantiate.swift */,
+				645C1EAF2429CF4C00C9176A /* UIViewController+NVActivityIndicatorView.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -367,6 +429,7 @@
 		64F5067B24268A0C00F7BC14 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				645C1E9A24291F6B00C9176A /* WebBrowser */,
 				64F5067C24268A1300F7BC14 /* QiitaSearch */,
 			);
 			path = Modules;
@@ -412,6 +475,7 @@
 				64995379242628AE00922516 /* Alamofire */,
 				649953862426296800922516 /* PromiseKit */,
 				64460CA72427C49F00CA4D46 /* Nuke */,
+				645C1EAD2429CF3300C9176A /* NVActivityIndicatorView */,
 			);
 			productName = Swifty;
 			productReference = 645D50D4242604FD0012742E /* Swifty.app */;
@@ -489,6 +553,7 @@
 				64995378242628AE00922516 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				649953852426296800922516 /* XCRemoteSwiftPackageReference "PromiseKit" */,
 				64460CA62427C49F00CA4D46 /* XCRemoteSwiftPackageReference "Nuke" */,
+				645C1EAC2429CF3200C9176A /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */,
 			);
 			productRefGroup = 645D50D5242604FD0012742E /* Products */;
 			projectDirPath = "";
@@ -510,6 +575,7 @@
 				64F50679242687B800F7BC14 /* QiitaSearchViewController.storyboard in Resources */,
 				64460C8D24275A4000CA4D46 /* Localizable.strings in Resources */,
 				645D50E7242604FE0012742E /* LaunchScreen.storyboard in Resources */,
+				645C1EA32429201600C9176A /* WebBrowserViewController.storyboard in Resources */,
 				645D50E4242604FE0012742E /* Assets.xcassets in Resources */,
 				64460C862427245B00CA4D46 /* QiitaSearchTableViewCell.xib in Resources */,
 			);
@@ -542,6 +608,7 @@
 				64460CB62427D54F00CA4D46 /* NibRegistrable.swift in Sources */,
 				64F506742426813A00F7BC14 /* String+ToURL.swift in Sources */,
 				64460CA42427BC1F00CA4D46 /* DateFormatter+Shared.swift in Sources */,
+				645C1EA92429923E00C9176A /* WebBrowserPresenter.swift in Sources */,
 				64460CBB2427DB1200CA4D46 /* QiitaSearchRouter.swift in Sources */,
 				64460C8A242758B000CA4D46 /* UIAlertController+Error.swift in Sources */,
 				64F5068124268B5400F7BC14 /* QiitaSearchContract.swift in Sources */,
@@ -564,12 +631,17 @@
 				64460CA32427BC1F00CA4D46 /* TimeZone+Extensions.swift in Sources */,
 				645D510D2426060A0012742E /* AppDelegate+FirstView.swift in Sources */,
 				64460CAA2427C5C700CA4D46 /* UIImageView+Nuke.swift in Sources */,
+				645C1EAB2429984100C9176A /* JSAlertCompatible.swift in Sources */,
+				645C1EB02429CF4C00C9176A /* UIViewController+NVActivityIndicatorView.swift in Sources */,
 				645D510F242606260012742E /* SceneDelegate+FirstView.swift in Sources */,
+				645C1EA72429922A00C9176A /* WebBrowserRouter.swift in Sources */,
+				645C1EA12429200500C9176A /* WebBrowserViewController.swift in Sources */,
 				64F5066E24264A4B00F7BC14 /* QiitaItemsAPIResponse.swift in Sources */,
 				64460CC72427F68E00CA4D46 /* Date+ToString.swift in Sources */,
 				649953832426290900922516 /* APIRequest.swift in Sources */,
 				64460C8F24275B8E00CA4D46 /* String+Localized.swift in Sources */,
 				649953812426290900922516 /* APIError.swift in Sources */,
+				645C1EA52429218500C9176A /* WebBrowserContract.swift in Sources */,
 				64460CA22427BC1F00CA4D46 /* String+ToDate.swift in Sources */,
 				645C1E992428833E00C9176A /* QiitaSearchViewDataSource.swift in Sources */,
 				64460CA52427BC1F00CA4D46 /* Locale+Extensions.swift in Sources */,
@@ -906,6 +978,14 @@
 				version = 8.4.1;
 			};
 		};
+		645C1EAC2429CF3200C9176A /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ninjaprox/NVActivityIndicatorView";
+			requirement = {
+				kind = exactVersion;
+				version = 4.8.0;
+			};
+		};
 		64995378242628AE00922516 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -929,6 +1009,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 64460CA62427C49F00CA4D46 /* XCRemoteSwiftPackageReference "Nuke" */;
 			productName = Nuke;
+		};
+		645C1EAD2429CF3300C9176A /* NVActivityIndicatorView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 645C1EAC2429CF3200C9176A /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */;
+			productName = NVActivityIndicatorView;
 		};
 		64995379242628AE00922516 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

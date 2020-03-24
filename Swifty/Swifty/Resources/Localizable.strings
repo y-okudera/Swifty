@@ -8,6 +8,7 @@
 
 // MARK: - Alert
 "OK" = "OK";
+"Cancel" = "Cancel";
 "Error" = "エラー";
 "DefaultErrorMessage" = "エラーが発生しました。";
 
@@ -25,4 +26,7 @@
 // MARK: - NetworkReachabilityError
 "NotReachable" = "ネットワークに接続されていません。";
 "OnlyViaWiFi" = "Wi-FiがOFFになっています。";
+
+// MARK: - WebBrowserPresenter
+"ConnectionError" = "通信エラーが発生しました。\nネットワーク状況を確認して\n再度お試しください。";
 

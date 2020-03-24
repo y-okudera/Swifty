@@ -27,6 +27,7 @@ protocol QiitaSearchPresentable {
     var isRequesting: Bool { get }
     func tappedSearchButton(query: String)
     func scrollViewIsNearBottomEdge()
+    func didSelectRow(indexPath: IndexPath)
 }
 
 /// Presenter -> Model
@@ -49,7 +50,6 @@ protocol QiitaSearchModelOutput: AnyObject {
 ///
 /// ルーターへの画面遷移依頼を定義
 protocol QiitaSearchWireframe {
-    func showUserGitHubPageBrowse()
-    func showItemPageBrowse()
+    func showWebBrowser(urlString: String)
 }
 

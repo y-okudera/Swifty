@@ -15,7 +15,11 @@ final class QiitaSearchViewPresenter {
     private let model: QiitaSearchModelInput
     private let router: QiitaSearchWireframe
     
-    private(set) var dataSource = QiitaSearchViewDataSource()
+    lazy var dataSource: QiitaSearchViewDataSource = {
+        let dataSource = QiitaSearchViewDataSource(qiitaSearchCelldelegate: self)
+        return dataSource
+    }()
+    
     private(set) var isRequesting: Bool = false {
         didSet {
             if isRequesting {
@@ -52,6 +56,13 @@ extension QiitaSearchViewPresenter: QiitaSearchPresentable {
         }
     }
     
+    func didSelectRow(indexPath: IndexPath) {
+        guard let urlString = dataSource.qiitaItems[indexPath.row].url else {
+            return
+        }
+        router.showWebBrowser(urlString: urlString)
+    }
+    
     /// ネットワーク状態をチェックし、Qiitaの記事一覧を取得する
     private func checkNetworkReachabilityStatus(requestQiitaItems: @escaping () -> Void) {
         firstly {
@@ -80,6 +91,22 @@ extension QiitaSearchViewPresenter: QiitaSearchPresentable {
     private func appendQiitaItems(additionalItems: [QiitaItem]) {
         dataSource.append(additionalItems: additionalItems)
         view?.reloadView()
+    }
+}
+
+extension QiitaSearchViewPresenter: QiitaSearchTableViewCellDelegate {
+    func didTapUserIcon(indexPath: IndexPath) {
+        guard let urlString = dataSource.qiitaItems[indexPath.row].makeQiitaUserUrlString() else {
+            return
+        }
+        router.showWebBrowser(urlString: urlString)
+    }
+    
+    func didTapGitHubIcon(indexPath: IndexPath) {
+        guard let urlString = dataSource.qiitaItems[indexPath.row].makeGitHubUserUrlString() else {
+            return
+        }
+        router.showWebBrowser(urlString: urlString)
     }
 }
 
