@@ -41,6 +41,7 @@
 		645C1EAB2429984100C9176A /* JSAlertCompatible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C1EAA2429984100C9176A /* JSAlertCompatible.swift */; };
 		645C1EAE2429CF3300C9176A /* NVActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 645C1EAD2429CF3300C9176A /* NVActivityIndicatorView */; };
 		645C1EB02429CF4C00C9176A /* UIViewController+NVActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C1EAF2429CF4C00C9176A /* UIViewController+NVActivityIndicatorView.swift */; };
+		645C1EB2242A626D00C9176A /* APICanceler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645C1EB1242A626D00C9176A /* APICanceler.swift */; };
 		645D50D8242604FD0012742E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645D50D7242604FD0012742E /* AppDelegate.swift */; };
 		645D50DA242604FD0012742E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645D50D9242604FD0012742E /* SceneDelegate.swift */; };
 		645D50E2242604FD0012742E /* Swifty.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 645D50E0242604FD0012742E /* Swifty.xcdatamodeld */; };
@@ -116,6 +117,7 @@
 		645C1EA82429923E00C9176A /* WebBrowserPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebBrowserPresenter.swift; sourceTree = "<group>"; };
 		645C1EAA2429984100C9176A /* JSAlertCompatible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSAlertCompatible.swift; sourceTree = "<group>"; };
 		645C1EAF2429CF4C00C9176A /* UIViewController+NVActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+NVActivityIndicatorView.swift"; sourceTree = "<group>"; };
+		645C1EB1242A626D00C9176A /* APICanceler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICanceler.swift; sourceTree = "<group>"; };
 		645D50D4242604FD0012742E /* Swifty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swifty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		645D50D7242604FD0012742E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		645D50D9242604FD0012742E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -360,6 +362,7 @@
 		6499537C242628FC00922516 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				645C1EB1242A626D00C9176A /* APICanceler.swift */,
 				6499537E2426290900922516 /* APIClient.swift */,
 				6499537D2426290900922516 /* APIError.swift */,
 				6499537F2426290900922516 /* APIRequest.swift */,
@@ -604,6 +607,7 @@
 			files = (
 				645C1E9624287D9800C9176A /* LoadingTableViewCell.swift in Sources */,
 				64F5066C24264A2900F7BC14 /* QiitaItemsAPIRequest.swift in Sources */,
+				645C1EB2242A626D00C9176A /* APICanceler.swift in Sources */,
 				64460CB22427D4CF00CA4D46 /* UITableViewCell+Identifier.swift in Sources */,
 				64460CB62427D54F00CA4D46 /* NibRegistrable.swift in Sources */,
 				64F506742426813A00F7BC14 /* String+ToURL.swift in Sources */,

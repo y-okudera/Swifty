@@ -9,6 +9,8 @@
 import Foundation
 
 enum APIError: Error {
+    /// キャンセル
+    case cancelled
     /// 認証に失敗した場合、または未認証(HTTP status code 401)
     case unauthorized
     /// リソースにアクセスすることを拒否された(HTTP status code 403)
@@ -32,6 +34,8 @@ enum APIError: Error {
 extension APIError: LocalizedError {
     var errorDescription: String? {
         switch self {
+            case .cancelled:
+                return "Cancelled".localized()
             case .unauthorized:
                 return "Unauthorized".localized()
             case .forbidden:

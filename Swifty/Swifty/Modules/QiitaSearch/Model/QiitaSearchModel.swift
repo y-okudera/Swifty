@@ -40,7 +40,6 @@ extension QiitaSearchModel {
         }
         .catch { [weak self] error in
             guard let `self` = self else { return }
-            print(debug: "QiitaItems取得失敗!")
             self.request.decrementPage()
             guard let apiError = error as? APIError else {
                 assertionFailure("error is not APIError.")

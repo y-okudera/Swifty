@@ -13,6 +13,7 @@
 "DefaultErrorMessage" = "エラーが発生しました。";
 
 // MARK: - APIError
+"Cancelled" = "キャンセルされました。";
 "Unauthorized" = "認証に失敗しました。";
 "Forbidden" = "アクセスが許可されていません。";
 "ConnectionError" = "通信エラーが発生しました。";

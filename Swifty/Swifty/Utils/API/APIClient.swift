@@ -68,20 +68,20 @@ struct APIClient {
             jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
             let decoder: DataDecoder = jsonDecoder
             
-            AF.request(urlRequest)
+            let dataRequest = AF.request(urlRequest)
                 .validate(statusCode: 200..<600)
                 .responseDecodable(of: T.Response.self, queue: queue, decoder: decoder) { afDataResponse in
-                    
-                    // check http status code
-                    if let statusCodeError = verifyResponseStatusCode(response: afDataResponse.response) {
-                        resolver.reject(statusCodeError)
-                        return
-                    }
                     
                     // check response data is not nil.
                     guard let data = afDataResponse.data else {
                         let apiError = afErrorToAPIError(afError: afDataResponse.error)
                         resolver.reject(apiError)
+                        return
+                    }
+                    
+                    // check http status code
+                    if let statusCodeError = verifyResponseStatusCode(response: afDataResponse.response) {
+                        resolver.reject(statusCodeError)
                         return
                     }
                     
@@ -104,6 +104,9 @@ struct APIClient {
                             resolver.reject(apiError)
                     }
             }
+            
+            // Add dataRequest to APICanceler.
+            APICanceler.shared.append(dataRequest: dataRequest)
         }
     }
 }
@@ -137,6 +140,11 @@ extension APIClient {
             return .invalidResponse
         }
         print(debug: "AFError:\(afError)")
+        
+        if afError.isExplicitlyCancelledError {
+            print(debug: "request is cancelled.")
+            return .cancelled
+        }
         
         if case .sessionTaskFailed(error: let error) = afError {
             if let urlError = error as? URLError {

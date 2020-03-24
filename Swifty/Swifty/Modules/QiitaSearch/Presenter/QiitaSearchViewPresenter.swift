@@ -125,10 +125,15 @@ extension QiitaSearchViewPresenter: QiitaSearchModelOutput {
     
     private func handleAPIError(apiError: APIError) {
         switch apiError {
+            case .cancelled:
+                print(debug: "QiitaItems取得キャンセル")
+                return
             case .others(error: let error):
+                print(debug: "QiitaItems取得失敗!")
                 view?.showAlert(nsError: (error as NSError))
             
             default:
+                print(debug: "QiitaItems取得失敗!")
                 view?.showAlert(error: apiError)
         }
     }
