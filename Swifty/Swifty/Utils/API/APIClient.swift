@@ -52,7 +52,9 @@ struct APIClient {
     }
     
     /// API Request
-    static func request<T: APIRequest>(request: T) -> Promise<Decodable> {
+    static func request<T: APIRequest>(request: T,
+                                       queue: DispatchQueue = .main,
+                                       decoder: DataDecoder = defaultDataDecoder()) -> Promise<Decodable> {
         
         return Promise<Decodable> { resolver in
             
@@ -63,29 +65,26 @@ struct APIClient {
             print(debug: "urlRequest")
             dump(debug: urlRequest)
             
-            let queue: DispatchQueue = .main
-            let jsonDecoder = JSONDecoder()
-            jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
-            let decoder: DataDecoder = jsonDecoder
-            
             let dataRequest = AF.request(urlRequest)
                 .validate(statusCode: 200..<600)
-                .responseDecodable(of: T.Response.self, queue: queue, decoder: decoder) { afDataResponse in
+                .responseDecodable(of: T.Response.self, queue: queue, decoder: decoder) { dataResponse in
                     
-                    // check response data is not nil.
-                    guard let data = afDataResponse.data else {
-                        let apiError = afErrorToAPIError(afError: afDataResponse.error)
-                        resolver.reject(apiError)
-                        return
-                    }
-                    
-                    // check http status code
-                    if let statusCodeError = verifyResponseStatusCode(response: afDataResponse.response) {
+                    let httpURLResponse = dataResponse.response
+                    let afError = dataResponse.error
+                    // Verify http status code.
+                    if let statusCodeError = verifyResponseStatusCode(response: httpURLResponse, afError: afError) {
                         resolver.reject(statusCodeError)
                         return
                     }
                     
-                    switch afDataResponse.result {
+                    // Whether response data is nil.
+                    guard let data = dataResponse.data else {
+                        let apiError = afErrorToAPIError(afError: afError)
+                        resolver.reject(apiError)
+                        return
+                    }
+                    
+                    switch dataResponse.result {
                         case .success(let response):
                             print(debug: "API Response")
                             dump(debug: response)
@@ -113,11 +112,18 @@ struct APIClient {
 
 extension APIClient {
     
+    private static func defaultDataDecoder() -> DataDecoder {
+        let jsonDecoder = JSONDecoder()
+        jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+        let decoder: DataDecoder = jsonDecoder
+        return decoder
+    }
+    
     /// Verify http status code.
-    private static func verifyResponseStatusCode(response: HTTPURLResponse?) -> APIError? {
+    private static func verifyResponseStatusCode(response: HTTPURLResponse?, afError: AFError?) -> APIError? {
         guard let status = response?.status else {
-            print(debug: "Invalid http status code.")
-            return .invalidResponse
+            let apiError = afErrorToAPIError(afError: afError)
+            return apiError
         }
         print(debug: "HTTP status", status)
         
