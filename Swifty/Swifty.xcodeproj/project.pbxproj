@@ -73,6 +73,7 @@
 		64B714BB242C971600BFF6B2 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 64B714BA242C971600BFF6B2 /* RealmSwift */; };
 		64B714BD242C971600BFF6B2 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 64B714BC242C971600BFF6B2 /* Realm */; };
 		64B714BF242C9A8D00BFF6B2 /* Realm+Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B714BE242C9A8D00BFF6B2 /* Realm+Shared.swift */; };
+		64CF38AB2430E84A00B54903 /* AuthenticationSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CF38AA2430E84A00B54903 /* AuthenticationSession.swift */; };
 		64F5066C24264A2900F7BC14 /* QiitaItemsAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F5066B24264A2900F7BC14 /* QiitaItemsAPIRequest.swift */; };
 		64F5066E24264A4B00F7BC14 /* QiitaItemsAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F5066D24264A4B00F7BC14 /* QiitaItemsAPIResponse.swift */; };
 		64F5067124267EBB00F7BC14 /* Print.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F5067024267EBB00F7BC14 /* Print.swift */; };
@@ -169,6 +170,7 @@
 		64B714B2242C961500BFF6B2 /* RealmInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmInitializer.swift; sourceTree = "<group>"; };
 		64B714B3242C961500BFF6B2 /* Realm+Async.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Realm+Async.swift"; sourceTree = "<group>"; };
 		64B714BE242C9A8D00BFF6B2 /* Realm+Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Realm+Shared.swift"; sourceTree = "<group>"; };
+		64CF38AA2430E84A00B54903 /* AuthenticationSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationSession.swift; sourceTree = "<group>"; };
 		64F5066B24264A2900F7BC14 /* QiitaItemsAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QiitaItemsAPIRequest.swift; sourceTree = "<group>"; };
 		64F5066D24264A4B00F7BC14 /* QiitaItemsAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QiitaItemsAPIResponse.swift; sourceTree = "<group>"; };
 		64F5067024267EBB00F7BC14 /* Print.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Print.swift; sourceTree = "<group>"; };
@@ -433,6 +435,7 @@
 				64460CC82427F77200CA4D46 /* Date */,
 				64F5066F24267EA200F7BC14 /* DEBUG */,
 				644C8BFA242E59EF0013C2C7 /* ExceptionHandler */,
+				64CF38A92430E78200B54903 /* OAuth */,
 				64B714AE242C960800BFF6B2 /* Realm */,
 			);
 			path = Utils;
@@ -462,6 +465,14 @@
 				64B714AF242C961500BFF6B2 /* RealmInitializerCompatible.swift */,
 			);
 			path = Realm;
+			sourceTree = "<group>";
+		};
+		64CF38A92430E78200B54903 /* OAuth */ = {
+			isa = PBXGroup;
+			children = (
+				64CF38AA2430E84A00B54903 /* AuthenticationSession.swift */,
+			);
+			path = OAuth;
 			sourceTree = "<group>";
 		};
 		64E15937242DF222002B47B2 /* DB */ = {
@@ -740,6 +751,7 @@
 				64460CC02427DD5500CA4D46 /* QiitaSearchModel.swift in Sources */,
 				64460C9C2427BC1F00CA4D46 /* DateFormat.swift in Sources */,
 				64460CAC2427C9DF00CA4D46 /* UITraitCollection+IsDarkMode.swift in Sources */,
+				64CF38AB2430E84A00B54903 /* AuthenticationSession.swift in Sources */,
 				64B714B5242C961500BFF6B2 /* RealmDaoHelper.swift in Sources */,
 				64460C912427831A00CA4D46 /* HTTPStatusCode.swift in Sources */,
 				64F50677242687AA00F7BC14 /* QiitaSearchViewController.swift in Sources */,
